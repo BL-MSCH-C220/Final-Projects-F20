@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/8-bit Arcade In.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Screens/End Screen/End.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Music/Ending.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Background/SkullCross-1.png2.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 250
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="End" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.501961, 0.164706, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512.561, 434.561 )
+scale = Vector2( 1.08708, 0.947019 )
+texture = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -445.5
+margin_top = 124.243
+margin_right = 445.5
+margin_bottom = 291.243
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "you died!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 132.0
+margin_top = 550.0
+margin_right = 412.0
+margin_bottom = 620.0
+color = Color( 0.337255, 0.0431373, 0.0431373, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 592.0
+margin_top = 550.0
+margin_right = 832.0
+margin_bottom = 620.0
+color = Color( 0.337255, 0.0431373, 0.0431373, 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 145.341
+margin_top = 511.013
+margin_right = 403.341
+margin_bottom = 650.013
+custom_fonts/font = SubResource( 2 )
+text = "restart"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 625.904
+margin_top = 516.898
+margin_right = 814.904
+margin_bottom = 644.898
+custom_fonts/font = SubResource( 3 )
+text = "quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
